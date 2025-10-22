@@ -51,4 +51,51 @@ if (form) {
 if (window.location.pathname.includes("dashboard")) {
   document.getElementById("userEmail").textContent = localStorage.getItem("userEmail") || "Guest";
   document.getElementById("userCoins").textContent = "20"; // temporary static value
+// === Coins Page ===
+if (document.getElementById("claimBtn")) {
+  const claimBtn = document.getElementById("claimBtn");
+  const coinMsg = document.getElementById("coinMsg");
+  const coinBalance = document.getElementById("coinBalance");
+
+  let coins = parseInt(localStorage.getItem("coins") || "20");
+  coinBalance.textContent = coins;
+
+  claimBtn.addEventListener("click", () => {
+    const lastClaim = localStorage.getItem("lastClaim");
+    const today = new Date().toDateString();
+    if (lastClaim === today) {
+      coinMsg.textContent = "You already claimed your daily coins today!";
+    } else {
+      coins += 20;
+      localStorage.setItem("coins", coins);
+      localStorage.setItem("lastClaim", today);
+      coinBalance.textContent = coins;
+      coinMsg.textContent = "🎉 You claimed 20 coins!";
+    }
+  });
+}
+
+// === My Bots Page ===
+if (document.getElementById("botList")) {
+  const botList = document.getElementById("botList");
+  fetch(`${backendUrl}/deployments`)
+    .then(res => res.json())
+    .then(data => {
+      botList.innerHTML = "";
+      data.forEach(bot => {
+        botList.innerHTML += `
+          <tr>
+            <td>${bot.APP_NAME}</td>
+            <td>${bot.SESSION_ID.slice(0, 6)}...</td>
+            <td>${bot.status}</td>
+          </tr>`;
+      });
+    });
+}
+
+// === Profile Page ===
+if (document.getElementById("profileEmail")) {
+  document.getElementById("profileEmail").textContent = localStorage.getItem("userEmail");
+  document.getElementById("profileUID").textContent = "USR-" + Math.random().toString(36).slice(2, 8).toUpperCase();
+  document.getElementById("profileDeploys").textContent = Math.floor(Math.random() * 10); // temporary
 }
