@@ -3,67 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deploy Bot | Lord Rahl</title>
+  <title>Deploy Lord Rahl Bot</title>
   <link rel="stylesheet" href="style.css" />
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="deploy.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #020024, #090979, #000);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .deploy-container {
+      background: rgba(0, 0, 30, 0.8);
+      border: 1px solid #00bfff;
+      border-radius: 16px;
+      padding: 30px;
+      width: 90%;
+      max-width: 450px;
+      box-shadow: 0 0 20px #00bfff;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00bfff;
+      font-size: 1.8em;
+    }
+
+    label {
+      font-weight: 600;
+      margin-top: 10px;
+      display: block;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      font-size: 1em;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border: 1px solid #00bfff;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #00bfff;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      font-size: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #007acc;
+      box-shadow: 0 0 15px #00bfff;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #00ffcc;
+    }
+  </style>
 </head>
+
 <body>
-  <header style="padding:20px;text-align:center;background:#0b1126;">
-    <h1>⚙️ Deploy Your Bot</h1>
-  </header>
+  <div class="deploy-container">
+    <h1>🚀 Deploy Lord Rahl Bot</h1>
 
-  <div style="max-width:450px;margin:30px auto;padding:20px;background:#0b1126;border-radius:20px;">
-    <form id="deployForm">
-      <label>Session ID</label>
-      <input type="text" id="SESSION_ID" placeholder="Enter Session ID" required />
+    <label for="sessionId">Session ID</label>
+    <input type="text" id="sessionId" placeholder="Enter your session ID" required />
 
-      <label>Owner Name</label>
-      <input type="text" id="OWNER_NAME" value="LORD RAHL" readonly />
+    <label for="owner">Owner Name</label>
+    <input type="text" id="owner" value="LORD RAHL" readonly />
 
-      <label>Prefix</label>
-      <input type="text" id="PREFIX" value="!" />
+    <label for="botName">Bot Name</label>
+    <input type="text" id="botName" placeholder="e.g., Rahl-XMD" required />
 
-      <label>Auto React</label>
-      <select id="AUTO_REACT">
-        <option value="true">True</option>
-        <option value="false">False</option>
-      </select>
+    <label for="prefix">Prefix</label>
+    <input type="text" id="prefix" placeholder="e.g., !" required />
 
-      <label>Auto Read Status</label>
-      <select id="AUTO_READ_STATUS">
-        <option value="true">True</option>
-        <option value="false">False</option>
-      </select>
+    <label for="mode">Mode</label>
+    <select id="mode">
+      <option value="public">Public</option>
+      <option value="private">Private</option>
+    </select>
 
-      <label>Mode</label>
-      <select id="MODE">
-        <option value="public">Public</option>
-        <option value="private">Private</option>
-      </select>
+    <label for="autoReact">Auto React</label>
+    <select id="autoReact">
+      <option value="true">True</option>
+      <option value="false">False</option>
+    </select>
 
-      <label>Theme</label>
-      <select id="THEME">
-        <option value="royal">Royal (Blue & Black)</option>
-        <option value="dark">Dark</option>
-        <option value="light">Light</option>
-      </select>
+    <label for="ownerNumber">Owner Number</label>
+    <input type="text" id="ownerNumber" placeholder="e.g., 254700000000" required />
 
-      <label>App Name</label>
-      <input type="text" id="APP_NAME" placeholder="Bot App Name" required />
-
-      <label>Deploy Platform</label>
-      <select id="DEPLOY_PLATFORM">
-        <option value="Render">Render</option>
-        <option value="Railway">Railway</option>
-        <option value="Heroku">Heroku</option>
-      </select>
-
-      <button type="submit" style="margin-top:15px;">🚀 Deploy Now</button>
-    </form>
-
-    <p id="deployMessage" style="margin-top:10px;color:#7fd2ff;"></p>
+    <button id="deployBtn">Deploy Now</button>
+    <div class="message" id="message"></div>
   </div>
-
-  <script src="../firebase-config.js"></script>
-  <script src="app.js"></script>
 </body>
 </html>
