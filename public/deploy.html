@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deploy Bot | Lord Rahl</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header style="padding:20px;text-align:center;background:#0b1126;">
+    <h1>⚙️ Deploy Your Bot</h1>
+  </header>
+
+  <div style="max-width:450px;margin:30px auto;padding:20px;background:#0b1126;border-radius:20px;">
+    <form id="deployForm">
+      <label>Session ID</label>
+      <input type="text" id="SESSION_ID" placeholder="Enter Session ID" required />
+
+      <label>Owner Name</label>
+      <input type="text" id="OWNER_NAME" value="LORD RAHL" readonly />
+
+      <label>Prefix</label>
+      <input type="text" id="PREFIX" value="!" />
+
+      <label>Auto React</label>
+      <select id="AUTO_REACT">
+        <option value="true">True</option>
+        <option value="false">False</option>
+      </select>
+
+      <label>Auto Read Status</label>
+      <select id="AUTO_READ_STATUS">
+        <option value="true">True</option>
+        <option value="false">False</option>
+      </select>
+
+      <label>Mode</label>
+      <select id="MODE">
+        <option value="public">Public</option>
+        <option value="private">Private</option>
+      </select>
+
+      <label>Theme</label>
+      <select id="THEME">
+        <option value="royal">Royal (Blue & Black)</option>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+
+      <label>App Name</label>
+      <input type="text" id="APP_NAME" placeholder="Bot App Name" required />
+
+      <label>Deploy Platform</label>
+      <select id="DEPLOY_PLATFORM">
+        <option value="Render">Render</option>
+        <option value="Railway">Railway</option>
+        <option value="Heroku">Heroku</option>
+      </select>
+
+      <button type="submit" style="margin-top:15px;">🚀 Deploy Now</button>
+    </form>
+
+    <p id="deployMessage" style="margin-top:10px;color:#7fd2ff;"></p>
+  </div>
+
+  <script src="../firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
