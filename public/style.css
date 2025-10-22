@@ -1,0 +1,36 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #000000, #0a0f3f);
+  color: #e0e6ff;
+  margin: 0;
+  padding: 0;
+}
+
+header, .nav, .card {
+  background: #0b1126;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+button {
+  background: #0f4cff;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1b5fff;
+}
+
+input, select {
+  background: #111a3b;
+  border: 1px solid #1b3a6e;
+  border-radius: 10px;
+  padding: 8px;
+  color: white;
+  width: 100%;
+}
