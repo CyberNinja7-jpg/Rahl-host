@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Coins | Lord Rahl</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header style="padding:20px;text-align:center;background:#0b1126;">
+    <h1>💰 My Coins</h1>
+  </header>
+
+  <div style="max-width:400px;margin:30px auto;text-align:center;background:#0b1126;padding:20px;border-radius:20px;">
+    <h3>Current Balance: <span id="coinBalance">0</span> coins</h3>
+    <button id="claimBtn">🎁 Claim Daily 20 Coins</button>
+    <p id="coinMsg" style="margin-top:10px;color:#7fd2ff;"></p>
+  </div>
+
+  <script src="../firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
