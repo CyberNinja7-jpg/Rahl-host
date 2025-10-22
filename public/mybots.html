@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Bots | Lord Rahl</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header style="padding:20px;text-align:center;background:#0b1126;">
+    <h1>🤖 My Bots</h1>
+  </header>
+
+  <div style="max-width:600px;margin:30px auto;background:#0b1126;padding:20px;border-radius:20px;">
+    <table style="width:100%;border-collapse:collapse;color:#e0e6ff;">
+      <thead>
+        <tr style="border-bottom:1px solid #1b3a6e;">
+          <th>Bot Name</th>
+          <th>Session ID</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="botList">
+        <tr><td colspan="3" style="text-align:center;">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="../firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
