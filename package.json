@@ -2,9 +2,9 @@
   "name": "lord-rahl-deployer",
   "version": "1.0.0",
   "type": "module",
-  "main": "server.js",
+  "main": "deployServer.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node deployServer.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
